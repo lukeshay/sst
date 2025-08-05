@@ -51,8 +51,8 @@ export default $config({
             },
           },
           logging: {
-            name: "datadog",
-          }
+            name: `/sst/cluster/${$app.name}-${$app.stage}-MyCluster/MyService/log-router`,
+          },
         },
       ],
     });

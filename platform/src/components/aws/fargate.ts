@@ -152,7 +152,7 @@ export interface FargateLoggingCustomArgs {
   /**
    * The driver to use for logging.
    */
-  driver: string;
+  driver: "splunk" | "awsfirelens";
   /**
    * The options to pass to the logging driver.
    */
@@ -620,7 +620,7 @@ export interface FargateBaseArgs {
    * }
    * ```
    */
-  logging?: Input<FargateLoggingAwsLogsArgs>;
+  logging?: Input<FargateLoggingArgs>;
   /**
    * Mount Amazon EFS file systems into the container.
    *
