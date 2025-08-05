@@ -169,7 +169,7 @@ type NormalizedAwsLogsLoggingArgs =
     }
   | FargateLoggingCustomArgs;
 
-export interface FargateFirelensConfigurationArgs {
+export interface FargateFirelensArgs {
   /**
    * The type of FireLens configuration to use.
    */
@@ -286,7 +286,7 @@ export interface FargateContainerArgs {
   /**
    * The FireLens configuration to use for the container.
    */
-  firelensConfiguration?: Input<FargateFirelensConfigurationArgs>;
+  firelens?: Input<FargateFirelensArgs>;
 }
 
 export interface FargateBaseArgs {
@@ -725,7 +725,7 @@ export interface FargateBaseArgs {
   /**
    * The FireLens configuration to use for the container.
    */
-  firelensConfiguration?: Input<FargateFirelensConfigurationArgs>;
+  firelens?: Input<FargateFirelensArgs>;
   /**
    * [Transform](/docs/components#transform) how this component creates its underlying
    * resources.
@@ -813,7 +813,7 @@ export function normalizeContainers(
       args.volumes ||
       args.health ||
       args.ssm ||
-      args.firelensConfiguration)
+      args.firelens)
   ) {
     throw new VisibleError(
       type === "service"
@@ -838,7 +838,7 @@ export function normalizeContainers(
       entrypoint: args.entrypoint,
       health: type === "service" ? args.health : undefined,
       dev: type === "service" ? args.dev : undefined,
-      firelensConfiguration: args.firelensConfiguration,
+      firelens: args.firelens,
     },
   ];
 
@@ -1192,7 +1192,7 @@ export function createTaskDefinition(
         name,
         valueFrom,
       })),
-      firelensConfiguration: container.firelensConfiguration,
+      firelensConfiguration: container.firelens,
     })),
   );
 
