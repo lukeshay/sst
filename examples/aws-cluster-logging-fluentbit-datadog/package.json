@@ -1,5 +1,5 @@
 {
-  "name": "aws-cluster-spot",
+  "name": "aws-cluster-logging-fluentbit-datadog",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
