@@ -155,7 +155,7 @@ export interface FargateLoggingAwsLogsArgs
 export interface FargateLoggingCustomArgs
   extends FargateLoggingBaseArgs<string> {
   /**
-   * The options to pass to the FireLens logging driver.
+   * The options to pass to the logging driver.
    */
   options?: Input<Record<string, Input<string>>>;
 }
