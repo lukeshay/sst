@@ -1,12 +1,9 @@
 /// <reference path="./.sst/platform/config.d.ts" />
 
 /**
- * ## AWS Cluster Spot capacity
+ * ## AWS Cluster Logging with Fluent Bit and Datadog
  *
- * This example, shows how to use the Fargate Spot capacity provider for your services.
- *
- * We have it set to use only Fargate Spot instances for all non-production stages. Learn more
- * about the [`capacity`](/docs/component/aws/cluster#capacity) prop.
+ * This example, shows how to use the Fluent Bit logging driver with Datadog for your services.
  */
 export default $config({
   app(input) {
@@ -53,6 +50,9 @@ export default $config({
               "enable-ecs-log-metadata": "true",
             },
           },
+          logging: {
+            name: "datadog",
+          }
         },
       ],
     });

@@ -130,15 +130,11 @@ export const supportedMemories = {
   },
 };
 
-export interface FargateLoggingBaseArgs<T extends string | undefined> {
+export interface FargateLoggingAwsLogsArgs {
   /**
    * The driver to use for logging.
    */
-  driver: T;
-}
-
-export interface FargateLoggingAwsLogsArgs
-  extends FargateLoggingBaseArgs<"awslogs" | undefined> {
+  driver?: "awslogs";
   /**
    * The duration the logs are kept in CloudWatch.
    * @default `"1 month"`
@@ -152,8 +148,11 @@ export interface FargateLoggingAwsLogsArgs
   name?: Input<string>;
 }
 
-export interface FargateLoggingCustomArgs
-  extends FargateLoggingBaseArgs<string> {
+export interface FargateLoggingCustomArgs {
+  /**
+   * The driver to use for logging.
+   */
+  driver: string;
   /**
    * The options to pass to the logging driver.
    */
