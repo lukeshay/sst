@@ -44,7 +44,7 @@ export default $config({
         {
           name: "log-router",
           image: "public.ecr.aws/aws-observability/aws-for-fluent-bit:stable",
-          firelensConfiguration: {
+          firelens: {
             type: "fluentbit",
             options: {
               "enable-ecs-log-metadata": "true",
